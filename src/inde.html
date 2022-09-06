@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        .current {
+            color: red !important;
+            font-weight: bold !important;
+        }
+        .origin {
+            color: blue;
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <ul v-for='(item,index) in arr'>
+            <li @click='handlerLi(index)' :class='{current:flag==index,origin}'>{{item.id}}------{{item.name}}</li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                current:'current',
+                flag:0,
+                origin:'origin',
+                arr:[
+                        {id:1,name:'尤雨溪'},
+                        {id:2,name:'阮一峰'},
+                        {id:3,name:'小芒果'}
+                    ]
+            },
+            methods: {
+                handlerLi(i) {
+                    // console.log(i)
+                    this.flag=i;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
