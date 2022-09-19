@@ -1,7 +1,11 @@
 import Vue from 'vue'
-import App from './components/Doc.vue'
+import App from './App.vue'
 import router from '@/router/index.js'
 import dayjs from './dayjs'
+
+const axios = require('axios')// 引用axios
+axios.default.baseURL = 'http://43.142.61.134:9090/user' // 设置一个基础请求地址
+Vue.prototype.$axios = axios // 全局注册，之后可在其他组件中通过 this.$axios 发送数据
 
 // Vue.config.productionTip = false 阻止没必要的报错
 
